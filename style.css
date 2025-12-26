@@ -17,8 +17,14 @@ body{
         font-family: 'Arial';
         font-size: 60px;
     }
-    p {
-        font-family: 'Georgia';
-        font-size: 25px;
+    p,
+    ul li {
+    font-family: 'Georgia';
+    font-size: 25px;
+    }
+
+    ul li::marker {
+    font-family: 'Georgia';
+    font-size: 25px;
     }
 }
