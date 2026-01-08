@@ -1,31 +1,42 @@
 <html> 
   <head> 
     <link rel="stylesheet" href="style.css" />
+    <script src="dark-mode.js"></script>
+    <script src="typing-effect.js"></script>
   </head>
   <body>
+    <div class="dark-mode-toggle-wrapper">
+      <label class="dark-mode-toggle">
+        <input type="checkbox" onchange="toggleDarkMode()">
+        <span class="dark-mode-toggle-slider"></span>
+      </label>
+    </div>
     
     <div class="container">
-      <div class="image">
-        <img src="C:\Users\emily\OneDrive\Pictures\Mo 20240607-02 108 - square.jpg"/>
-      </div>
       <div class="text">
-        <h1>Hi! I'm Emily Mo</h1>
+        <h1><span class="emoji">👩🏻‍💻</span><span id="typed-text"></span><span class="cursor">|</span></h1>
+        <nav class="navbar">
+          <a href="index.html">home</a>
+          <a href="about-me.html">about me</a>
+        </nav>
       </div>
     </div>
 
     
-    <p>i'm a student engineer interested in the intersection of technology, finance, and machine learning, with curiosity across other domains.</p>
+    <p>i'm a ml/software engineer interested in the intersection of tech and finance. however, i'm always exploring new areas and looking for opportunities to learn.</p>
     <p>more about me:</p>
     <ul>
-      <li>studying eecs and business under uc berkeley's <a href="https://www.businessinsider.com/uc-berkeley-met-for-future-tech-leaders-2017-4"><u><em>met program</em></u></a>.</li>
-      <li>previously interned at barclays investment bank</li>
-      <li>worked on ml, tech, and strategy consulting projects for Quest Diagnositcs, the Trevor Project, Hormel, and Blue Origin</li>
-      <li>grew up in seattle, now in sf</li>
-      <li>interested in research, entrepreneurship, recruiting</li>
-      <li>love food, swimmming, <a href="https://www.strava.com/athletes/123047488"><u><em>Strava</em></u></a>, and learning new things</li>
+      <li>studying eecs and business under <strong>uc berkeley's <a href="https://www.businessinsider.com/uc-berkeley-met-for-future-tech-leaders-2017-4" class="text-link">met program</a></strong>.</li>
+      <li>previously interned as a <strong>swe at barclays</strong> resilience team</li>
+      <li>worked on ml, full stack, and tech consulting projects for:</li>
+        <ul>
+          <li>nvidia, quest diagnostics, blue origin, the trevor project</li>
+        </ul>
+      <li>elks scholar, burger king scholar, coca-cola scholarship semifinalist</li>
+      <li>for fun: usa national kung fu team member, swimmer, runner, aspiring chef</li>
     </ul>
-    <br></br>
-    <p>Don't be a stranger, <strong><u>reach out</u></strong>!</p>
+    <p>currently interested in nlp research, building, and recruiting. feel free to <strong>reach out!</strong></p>
+    <p><a href="mailto:emilymo999@berkeley.edu" class="contact-link">email↗</a><a href="https://www.linkedin.com/in/emiilymo" class="contact-link">linkedin↗</a><a href="https://github.com/emilymo999" class="contact-link">github↗</a> </p>
 
 
     <!-- lists! bullet points. add ul or ol to get rid of bullets? like unordered/ordered lists
