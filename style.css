@@ -76,6 +76,7 @@ h1 {
 p,
 ul li {
     font-family: 'Nunito', sans-serif;
+    font-weight: 600;
     font-size: 13px;
     line-height: 1.5;
     margin-bottom: 8px;

@@ -4,12 +4,13 @@
     <link rel="icon" type="image/png" href="images/browserimage.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <script src="dark-mode.js" defer></script>
     <script src="typing-effect.js" defer></script>
   </head>
   <body>
+    <div style="position:fixed;top:20px;left:20px;font-size:24px;z-index:1000;">🍊</div>
     <div class="dark-mode-toggle-wrapper">
       <label class="dark-mode-toggle">
         <input type="checkbox" onchange="toggleDarkMode()">
@@ -19,7 +20,7 @@
 
     <div class="container">
       <div class="text">
-        <h1><span class="emoji">🍊</span><span id="typed-text"></span><span class="cursor">|</span></h1>
+        <h1><span id="typed-text"></span><span class="cursor">|</span></h1>
         <nav class="navbar">
           <a href="index.html">home</a>
           <a href="about-me.html">about me</a>
