@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light" />
     <link rel="icon" type="image/png" href="images/browserimage.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -8,39 +9,41 @@
     <link rel="stylesheet" href="style.css" />
     <script src="dark-mode.js" defer></script>
     <script src="typing-effect.js" defer></script>
+    <script src="pixel-in.js" defer></script>
+    <script src="color-mode.js" defer></script>
   </head>
   <body>
-    <div style="position:fixed;top:20px;left:20px;font-size:24px;z-index:1000;">🍊</div>
-    <div class="dark-mode-toggle-wrapper">
-      <label class="dark-mode-toggle">
-        <input type="checkbox" onchange="toggleDarkMode()">
-        <span class="dark-mode-toggle-slider"></span>
-      </label>
+    <div class="top-bar">
+      <img src="images/browserimage dark.png" id="top-bar-logo" class="top-bar-logo" />
+      <span style="font-family:'Libre Baskerville',serif;font-weight:700;font-size:16px;">Emily Mo</span>
+      <nav class="navbar">
+      </nav>
     </div>
+    <button id="color-mode-btn" class="color-mode-btn" onclick="toggleColorMode()">add some color</button>
 
-    <div class="container">
-      <div class="text">
-        <h1><span id="typed-text"></span><span class="cursor">|</span></h1>
-        <nav class="navbar">
-          <a href="index.html">home</a>
-          <a href="about-me.html">about me</a>
-        </nav>
+    <div class="page-layout">
+      <img src="images/emo-black.jpeg" alt="Emily Mo" class="casual-photo" />
+      <div class="text-col">
+        <div class="container">
+          <div class="text">
+            <h1><span id="typed-text"></span><span class="cursor">|</span></h1>
+          </div>
+        </div>
+        <p>I study EECS & Business at <strong>UC Berkeley's M.E.T.</strong> Program. My interests largely lie in the intersection of tech and finance, but I'm always looking for new areas to explore. A bit more about me:</p>
+        <!-- <p>More about me:</p> -->
+        <ul>
+          <li>Current researcher at <strong>Berkeley's NetSys Lab</strong> working on LLM performance on cloud networking abstractions + Data Analytics Project Lead for Murphy Oil.</li>
+          <li>Working on embedded satellite software at <strong>SpaceX</strong> Starshield Team this summer, previously focused on database systems and cash reordering strategy at <strong>Barclays</strong> Resilience Team.</li>
+          <!-- <li>Worked on ML, full stack, and strategy projects for:</li>
+            <ul>
+              <li>NVIDIA, Quest Diagnostics, Blue Origin, The Trevor Project</li>
+            </ul> -->
+          <li>Elks Scholar, Burger King Scholar, USA Kung Fu National Team Member</li>
+        </ul>
+        <p>Currently interested in recruiting, building, and ML research. Feel free to <strong>reach out!</strong></p>
+        <p><a href="mailto:emilymo999@berkeley.edu" class="contact-link">email↗</a><a href="https://www.linkedin.com/in/emiilymo" class="contact-link">linkedin↗</a><a href="https://github.com/emilymo999" class="contact-link">github↗</a></p>
       </div>
     </div>
-
-    <p>I study EECS & Business at <strong>UC Berkeley's M.E.T.</strong> dual degree program. My interests largely lie in the intersection of tech and finance, but I'm always looking for new areas to explore.</p>
-    <p>More about me:</p>
-    <ul>
-      <li>Current researcher at <strong>Berkeley's NetSys Lab</strong> working on LLM performance on cloud networking abstractions + Data Analytics Project Lead for Murphy Oil.</li>
-      <li>Working on embedded satellite software at <strong>SpaceX</strong> Starshield Team this summer, previously focused on database systems and cash reordering strategy at <strong>Barclays</strong> Resilience Team.</li>
-      <!-- <li>Worked on ML, full stack, and strategy projects for:</li>
-        <ul>
-          <li>NVIDIA, Quest Diagnostics, Blue Origin, The Trevor Project</li>
-        </ul> -->
-      <li>Elks Scholar, Burger King Scholar, USA Kung Fu National Team Member</li>
-    </ul>
-    <p>Currently interested in recruiting, building, and ML research. Feel free to <strong>reach out!</strong></p>
-    <p><a href="mailto:emilymo999@berkeley.edu" class="contact-link">email↗</a><a href="https://www.linkedin.com/in/emiilymo" class="contact-link">linkedin↗</a><a href="https://github.com/emilymo999" class="contact-link">github↗</a></p>
 
   </body>
 </html>

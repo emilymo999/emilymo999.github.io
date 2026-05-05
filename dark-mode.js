@@ -14,17 +14,9 @@ function toggleDarkMode() {
     localStorage.setItem('darkMode', isDarkMode);
 }
 
-// Load saved preference on page load
+// Dark mode toggle is currently hidden — clear any saved state
 document.addEventListener('DOMContentLoaded', function() {
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    const body = document.body;
-    const checkbox = document.querySelector('.dark-mode-toggle input[type="checkbox"]');
-    
-    if (savedDarkMode) {
-        body.classList.add('dark-mode');
-        if (checkbox) {
-            checkbox.checked = true;
-        }
-    }
+    localStorage.removeItem('darkMode');
+    document.body.classList.remove('dark-mode');
 });
 

@@ -1,10 +1,15 @@
+html {
+    background: #ffffff !important;
+    color-scheme: light;
+}
+
 body {
     font-family: 'Nunito', sans-serif;
     text-align: left;
-    background: white;
-    color: black;
-    max-width: 680px;
-    margin-top: 150px;
+    background: #ffffff !important;
+    color: #777777;
+    max-width: 720px;
+    margin-top: 120px;
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -25,6 +30,7 @@ h1 {
     font-weight: 700;
     font-size: 28px;
     margin-bottom: 10px;
+    color: #000000;
 }
 
 /* Typing effect styles */
@@ -55,18 +61,25 @@ h1 {
 
 /* Navigation bar */
 .navbar {
-    margin-top: 10px;
-    margin-bottom: 10px;
     display: none;
+    margin: 0;
+    margin-left: 24px;
+}
+
+body.color-mode .navbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .navbar a {
     font-family: 'Nunito', sans-serif;
     font-size: 15px;
-    color: #FBBB62;
+    color: #000000;
     text-decoration: none;
     margin-right: 20px;
 }
+
 
 .navbar a:hover {
     text-decoration: underline;
@@ -84,6 +97,14 @@ ul li {
 
 /* Links */
 a {
+    color: #000000;
+}
+
+body.color-mode {
+    color: #000000;
+}
+
+body.color-mode a {
     color: #FBBB62;
 }
 
@@ -150,24 +171,98 @@ img {
     min-width: 0;
 }
 
-/* Bold color — matches link orange */
+img.casual-photo {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+/* Bold */
 strong {
+    color: #000000;
+}
+
+body.color-mode strong {
     color: #FBBB62;
+}
+
+/* Top bar */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #ffffff;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 24px;
+    color: #000000;
+}
+
+body.dark-mode .top-bar {
+    background: #1a1a1a;
+}
+
+/* Color mode button */
+.color-mode-btn {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    padding: 0;
+    animation: shine 2.4s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0%, 100% { color: #FBBB62; text-shadow: 0 0 6px rgba(251,187,98,0.3); }
+    50%       { color: #f0a020; text-shadow: 0 0 14px rgba(251,187,98,0.7); }
+}
+
+body.color-mode .color-mode-btn {
+    animation: none;
+    color: #888;
+}
+
+body.color-mode .color-mode-btn:hover {
+    color: #444;
+}
+
+/* Top-bar logo image */
+img.top-bar-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    display: block;
+}
+
+/* Dark mode toggle — hidden */
+.dark-mode-toggle-wrapper {
+    display: none;
 }
 
 /* Dark mode toggle switch */
 .dark-mode-toggle-wrapper {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 18px;
+    right: 24px;
     z-index: 1000;
 }
 
 .dark-mode-toggle {
     position: relative;
     display: inline-block;
-    width: 56px;
-    height: 28px;
+    width: 36px;
+    height: 18px;
 }
 
 .dark-mode-toggle input {
@@ -183,43 +278,27 @@ strong {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #c0c0c0;
+    background-color: #d0d0d0;
     transition: 0.3s;
-    border-radius: 28px;
+    border-radius: 18px;
 }
 
 .dark-mode-toggle-slider:before {
     position: absolute;
     content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #808080;
+    height: 12px;
+    width: 12px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
     transition: 0.3s;
     border-radius: 50%;
 }
 
 .dark-mode-toggle input:checked + .dark-mode-toggle-slider {
-    background-color: #808080;
+    background-color: #888;
 }
 
 .dark-mode-toggle input:checked + .dark-mode-toggle-slider:before {
-    transform: translateX(28px);
-    background-color: #c0c0c0;
-}
-
-.dark-mode-toggle-slider:after {
-    position: absolute;
-    content: "🌙";
-    font-size: 12px;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: opacity 0.3s;
-    opacity: 1;
-}
-
-.dark-mode-toggle input:checked + .dark-mode-toggle-slider:after {
-    opacity: 0;
+    transform: translateX(18px);
 }
