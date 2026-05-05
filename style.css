@@ -1,5 +1,5 @@
 body {
-    font-family: monospace;
+    font-family: 'Nunito', sans-serif;
     text-align: left;
     background: white;
     color: black;
@@ -21,7 +21,8 @@ body.dark-mode {
 
 /* Headline */
 h1 {
-    font-family: monospace;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
     font-size: 28px;
     margin-bottom: 10px;
 }
@@ -60,7 +61,7 @@ h1 {
 }
 
 .navbar a {
-    font-family: monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 15px;
     color: #FBBB62;
     text-decoration: none;
@@ -74,7 +75,7 @@ h1 {
 /* Paragraphs + list text */
 p,
 ul li {
-    font-family: monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 13px;
     line-height: 1.5;
     margin-bottom: 8px;
@@ -99,7 +100,7 @@ a.contact-link {
 
 /* Bullet markers */
 ul li::marker {
-    font-family: monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 1em;
 }
 
@@ -133,7 +134,7 @@ img {
 }
 
 .emo-cube {
-    font-family: 'Courier New', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 5.5px;
     line-height: 1.1;
     white-space: pre;
