@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>emo cube</title>
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    #cube {
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.1;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+<div id="cube"></div>
+<script>
+const W = 70, H = 48;
+const CHAR_ASPECT = 0.55;
+
+const PATTERNS = {
+  E: [
+    "..........",
+    ".########.",
+    ".##.......",
+    ".##.......",
+    ".######...",
+    ".######...",
+    ".##.......",
+    ".##.......",
+    ".########.",
+    "..........",
+  ],
+  M: [
+    "..........",
+    ".##....##.",
+    ".###..###.",
+    ".########.",
+    ".##.##.##.",
+    ".##....##.",
+    ".##....##.",
+    ".##....##.",
+    ".##....##.",
+    "..........",
+  ],
+  O: [
+    "..........",
+    "..######..",
+    ".##....##.",
+    ".##....##.",
+    ".##....##.",
+    ".##....##.",
+    ".##....##.",
+    ".##....##.",
+    "..######..",
+    "..........",
+  ],
+};
+
+const PN = 10;
+
+function sampleLetter(letter, u, v) {
+  const pat = PATTERNS[letter];
+  if (!pat) return '.';
+  const col = Math.max(0, Math.min(PN - 1, Math.floor(u * PN)));
+  const row = Math.max(0, Math.min(PN - 1, Math.floor(v * PN)));
+  return pat[row][col] === '#' ? '#' : '.';
+}
+
+function dot(a, b) { return a[0]*b[0] + a[1]*b[1] + a[2]*b[2]; }
+function sub(a, b) { return [a[0]-b[0], a[1]-b[1], a[2]-b[2]]; }
+function add(a, b) { return [a[0]+b[0], a[1]+b[1], a[2]+b[2]]; }
+function scale(v, k) { return [v[0]*k, v[1]*k, v[2]*k]; }
+function len2(v) { return dot(v, v); }
+
+function rotY(v, t) {
+  const c = Math.cos(t), s = Math.sin(t);
+  return [v[0]*c + v[2]*s, v[1], -v[0]*s + v[2]*c];
+}
+function rotX(v, t) {
+  const c = Math.cos(t), s = Math.sin(t);
+  return [v[0], v[1]*c - v[2]*s, v[1]*s + v[2]*c];
+}
+
+const SZ = 1.0;
+const BASE_FACES = [
+  { c: [0,   0,  -SZ], r: [SZ,   0,    0], u: [0,  SZ,    0], n: [0,  0, -1], letter: 'E' },
+  { c: [-SZ, 0,    0], r: [0,    0,   -SZ], u: [0,  SZ,    0], n: [-1, 0,  0], letter: 'M' },
+  { c: [0,  -SZ,   0], r: [SZ,   0,    0], u: [0,   0,   -SZ], n: [0, -1,  0], letter: 'O' },
+  { c: [0,   0,   SZ], r: [-SZ,  0,    0], u: [0, -SZ,    0], n: [0,  0,  1], letter: 'O' },
+  { c: [SZ,  0,    0], r: [0,    0,   SZ], u: [0, -SZ,    0], n: [1,  0,  0], letter: 'E' },
+  { c: [0,   SZ,   0], r: [SZ,   0,    0], u: [0,   0,   SZ], n: [0,  1,  0], letter: 'M' },
+];
+
+const eye = [0, 0, -3.5];
+
+const TARGETS = [
+  { ax: 0,          ay: 0          },  // E (-Z face)
+  { ax: 0,          ay: -Math.PI/2 },  // M (-X face)
+  { ax: Math.PI/2,  ay: 0          },  // O (-Y face)
+];
+
+const PAUSE_MS  = 1500;
+const TRANS_MS  = 1200;
+const CYCLE_MS  = PAUSE_MS + TRANS_MS;
+
+function easeInOut(t) {
+  return t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+}
+
+function getRotation(now) {
+  const total = TARGETS.length * CYCLE_MS;
+  const t     = now % total;
+  const i     = Math.floor(t / CYCLE_MS);
+  const local = t - i * CYCLE_MS;
+  const curr  = TARGETS[i];
+  const next  = TARGETS[(i + 1) % TARGETS.length];
+
+  if (local < PAUSE_MS) {
+    return { ax: curr.ax, ay: curr.ay };
+  }
+  const p = easeInOut((local - PAUSE_MS) / TRANS_MS);
+  return {
+    ax: curr.ax + (next.ax - curr.ax) * p,
+    ay: curr.ay + (next.ay - curr.ay) * p,
+  };
+}
+
+function render(ax, ay) {
+  const rot   = v => rotX(rotY(v, ay), ax);
+  const faces = BASE_FACES.map(f => ({
+    c: rot(f.c), r: rot(f.r), u: rot(f.u), n: rot(f.n), letter: f.letter,
+  }));
+
+  const asp  = (W * CHAR_ASPECT) / H;
+  const rows = [];
+
+  for (let row = 0; row < H; row++) {
+    let line = '';
+    for (let col = 0; col < W; col++) {
+      const dx  = ((col + 0.5) / W * 2 - 1) * asp;
+      const dy  = (row + 0.5) / H * 2 - 1;
+      const dir = [dx, dy, 2.0];
+
+      let bestT = Infinity;
+      let ch    = ' ';
+
+      for (const f of faces) {
+        const dn = dot(f.n, dir);
+        if (dn >= 0) continue;
+
+        const t = dot(sub(f.c, eye), f.n) / dn;
+        if (t <= 0 || t >= bestT) continue;
+
+        const hit = add(eye, scale(dir, t));
+        const rel = sub(hit, f.c);
+        const fu  = dot(rel, f.r) / len2(f.r);
+        const fv  = dot(rel, f.u) / len2(f.u);
+
+        if (fu < -1 || fu > 1 || fv < -1 || fv > 1) continue;
+
+        bestT = t;
+        ch    = sampleLetter(f.letter, fu * 0.5 + 0.5, fv * 0.5 + 0.5);
+      }
+
+      line += ch;
+    }
+    rows.push(line);
+  }
+
+  return rows.join('\n');
+}
+
+const el = document.getElementById('cube');
+
+function frame(now) {
+  const { ax, ay } = getRotation(now);
+  el.textContent   = render(ax, ay);
+  requestAnimationFrame(frame);
+}
+
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

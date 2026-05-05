@@ -1,11 +1,12 @@
 body {
+    font-family: monospace;
     text-align: left;
     background: white;
     color: black;
     margin-top: 150px;
     margin-bottom: 50px;
-    margin-right: 375px;
-    margin-left: 375px;
+    margin-right: 275px;
+    margin-left: 275px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -17,8 +18,8 @@ body.dark-mode {
 
 /* Headline */
 h1 {
-    font-family: 'Arial';
-    font-size: 35px;
+    font-family: monospace;
+    font-size: 28px;
     margin-bottom: 10px;
 }
 
@@ -56,7 +57,7 @@ h1 {
 }
 
 .navbar a {
-    font-family: 'Calibri';
+    font-family: monospace;
     font-size: 15px;
     color: #FBBB62;
     text-decoration: none;
@@ -70,9 +71,10 @@ h1 {
 /* Paragraphs + list text */
 p,
 ul li {
-    font-family: 'Calibri';
-    font-size: 15px;
+    font-family: monospace;
+    font-size: 13px;
     line-height: 1.5;
+    margin-bottom: 8px;
 }
 
 /* Links */
@@ -94,7 +96,7 @@ a.contact-link {
 
 /* Bullet markers */
 ul li::marker {
-    font-family: 'Calibri';
+    font-family: monospace;
     font-size: 1em;
 }
 
@@ -116,6 +118,36 @@ img {
 .image {
     margin: 0;
     padding: 0;
+}
+
+
+
+/* Side-by-side layout */
+.page-layout {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.emo-cube {
+    font-family: 'Courier New', monospace;
+    font-size: 5.5px;
+    line-height: 1.1;
+    white-space: pre;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    color: #FBBB62;
+}
+
+.text-col {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Bold color — matches link orange */
+strong {
+    color: #FBBB62;
 }
 
 /* Dark mode toggle switch */

@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const textElement = document.getElementById('typed-text');
     const cursorElement = document.querySelector('.cursor');
-    const textToType = " hi! i'm emily mo.";
+    const textToType = " Hi! I'm Emily Mo.";
     let index = 0;
     
     function typeText() {
