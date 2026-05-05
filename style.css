@@ -3,10 +3,13 @@ body {
     text-align: left;
     background: white;
     color: black;
+    max-width: 680px;
     margin-top: 150px;
     margin-bottom: 50px;
-    margin-right: 275px;
-    margin-left: 275px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
