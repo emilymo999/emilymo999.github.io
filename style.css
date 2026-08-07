@@ -3,24 +3,17 @@ html {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    scrollbar-gutter: stable both-edges;
 }
 
 body {
     font-family: 'Segoe UI', sans-serif;
     background: #f7f4ef;
     color: #444444;
-    max-width: 720px;
+    max-width: 668px;
     margin: 0 auto;
     padding: 0 24px 80px;
     box-sizing: border-box;
-}
-
-/* Full-bleed accent bar */
-.top-accent {
-    height: 4px;
-    background: #1a1a1a;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
 }
 
 /* Nav */
@@ -126,19 +119,14 @@ strong {
     }
 }
 
-.top-accent,
 .site-nav,
 .page-layout {
     opacity: 0;
     animation: fadeInDown 1s ease forwards;
 }
 
-.top-accent {
-    animation-delay: 0s;
-}
-
 .site-nav {
-    animation-delay: 0.25s;
+    animation-delay: 0s;
 }
 
 .page-layout {
@@ -146,7 +134,6 @@ strong {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .top-accent,
     .site-nav,
     .page-layout {
         opacity: 1;
