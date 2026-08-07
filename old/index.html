@@ -1,0 +1,191 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" type="image/png" href="images/browserimage.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="dark-mode.js" defer></script>
+    <script src="typing-effect.js" defer></script>
+    <script src="color-mode.js" defer></script>
+  </head>
+  <body>
+    <div class="top-bar">
+      <img src="images/browserimage dark.png" id="top-bar-logo" class="top-bar-logo" />
+      <span style="font-family:'Libre Baskerville',serif;font-weight:700;font-size:16px;">Emily Mo</span>
+      <nav class="navbar">
+      </nav>
+      <button id="color-mode-btn" class="color-mode-btn" onclick="toggleColorMode()">add some color</button>
+    </div>
+
+    <div class="page-layout">
+      <img src="images/emo-black.jpeg" alt="Emily Mo" class="casual-photo" />
+      <div class="text-col">
+        <div class="container">
+          <div class="text">
+            <h1><span id="typed-text"></span><span class="cursor">|</span></h1>
+          </div>
+        </div>
+        <p>I study EECS & Business at <strong>UC Berkeley's M.E.T.</strong> Program. My interests largely lie in the intersection of tech and finance, but I'm always looking for new areas to explore. A bit more about me:</p>
+        <ul>
+          <li>Current researcher at <strong>Berkeley's NetSys Lab</strong> working on LLM performance on cloud networking abstractions + Data Analytics Project Lead for Murphy Oil.</li>
+          <li>Working on embedded satellite software at <strong>SpaceX</strong> Starshield Team this summer, previously focused on database systems and cash reordering strategy at <strong>Barclays</strong> Resilience Team.</li>
+          <li>Elks Scholar, Burger King Scholar, USA Kung Fu National Team Member</li>
+        </ul>
+        <p>Currently interested in recruiting, building, and ML research. Feel free to <strong>reach out!</strong></p>
+        <p><a href="mailto:emilymo999@berkeley.edu" class="contact-link">email↗</a><a href="https://www.linkedin.com/in/emiilymo" class="contact-link">linkedin↗</a><a href="https://github.com/emilymo999" class="contact-link">github↗</a></p>
+      </div>
+    </div>
+
+    <div class="scroll-arrow">&#8595;</div>
+
+    <div class="experience-section">
+      <h2 class="experience-heading">Work Experience</h2>
+
+      <div class="experience-entry">
+        <div class="experience-header">
+          <div>
+            <div class="experience-company">SpaceX</div>
+            <div class="experience-role">Incoming Software Engineering Intern</div>
+          </div>
+          <div class="experience-meta">
+            <div class="experience-year">May 2026 – Present</div>
+            <div class="experience-location">Los Angeles, CA</div>
+          </div>
+        </div>
+        <p class="experience-desc">Joining SpaceX as a Software Engineering Intern, working on embedded satellite software.</p>
+      </div>
+
+      <div class="experience-entry">
+        <div class="experience-header">
+          <div>
+            <div class="experience-company">UC Berkeley NetSys Lab</div>
+            <div class="experience-role">Undergraduate Researcher</div>
+          </div>
+          <div class="experience-meta">
+            <div class="experience-year">Jan 2026 – Present</div>
+            <div class="experience-location">Berkeley, CA</div>
+          </div>
+        </div>
+        <p class="experience-desc">Working on AI-assisted cloud networking research through Paraglider, a cloud networking abstraction system.</p>
+        <ul class="experience-bullets">
+          <li>Built a Python benchmarking framework to evaluate how AI models use Paraglider compared to native cloud primitives.</li>
+          <li>Designed prompts that ask models to generate network configurations, then validated outputs through schema-constrained JSON.</li>
+          <li>Evaluated AI-generated Paraglider workflows with Microsoft, IBM, and Google deployments.</li>
+          <li>Improved configuration success rates by roughly 25%, helping inform future AI-assisted cloud deployment workflows.</li>
+        </ul>
+      </div>
+
+      <div class="experience-entry">
+        <div class="experience-header">
+          <div>
+            <div class="experience-company">Barclays Investment Bank</div>
+            <div class="experience-role">Software Engineering Intern</div>
+          </div>
+          <div class="experience-meta">
+            <div class="experience-year">Jun 2025 – Aug 2025</div>
+            <div class="experience-location">Whippany, NJ / New York</div>
+          </div>
+        </div>
+        <p class="experience-desc">Worked on automation and resilience tooling for operational risk and branch cash replenishment systems.</p>
+        <ul class="experience-bullets">
+          <li>Built an automated processing pipeline that parses risk plans, extracts structured information with regex, validates schemas, and inserts 100,000+ operational strategies into a resilience database.</li>
+          <li>Reduced manual update time by 90%, cutting more than 20 hours of weekly work.</li>
+          <li>Synthesized findings from 200+ ERM, cybersecurity, and technology resilience reports.</li>
+          <li>Interviewed 10+ stakeholders to help develop a 10-page operational risk plan for multi-million-dollar branch cash replenishment across UK Crown Dependency branches.</li>
+        </ul>
+      </div>
+
+      <div class="experience-entry">
+        <div class="experience-header">
+          <div>
+            <div class="experience-company">The Trevor Project</div>
+            <div class="experience-role">Machine Learning Engineer</div>
+          </div>
+          <div class="experience-meta">
+            <div class="experience-year">Jan 2025 – Jun 2025</div>
+            <div class="experience-location">Berkeley, CA</div>
+          </div>
+        </div>
+        <p class="experience-desc">Built AI and machine learning tools to improve crisis response and hotline discoverability.</p>
+        <ul class="experience-bullets">
+          <li>Delivered a real-time crisis triage dashboard using OpenAI agentic routing, NLP sentiment classification, and decision-tree prioritization.</li>
+          <li>Helped score caller urgency and recover an estimated 43% of missed hotline calls, roughly 10,000 per quarter.</li>
+          <li>Built a RAG pipeline for SEO by indexing 2,000+ Trevor Project keywords and integrating Google Search API data.</li>
+          <li>Improved organic search impressions by roughly 35%, helping more people discover suicide hotline services.</li>
+        </ul>
+      </div>
+
+      <div class="experience-entry">
+        <div class="experience-header">
+          <div>
+            <div class="experience-company">Quest Diagnostics</div>
+            <div class="experience-role">Machine Learning Engineer</div>
+          </div>
+          <div class="experience-meta">
+            <div class="experience-year">Aug 2024 – Jan 2025</div>
+            <div class="experience-location">Berkeley, CA</div>
+          </div>
+        </div>
+        <p class="experience-desc">Worked on predictive analytics for large-scale lab transaction and volume forecasting.</p>
+        <ul class="experience-bullets">
+          <li>Trained decision tree, random forest, and linear regression models on 10M+ laboratory transactions.</li>
+          <li>Performed exploratory data analysis, feature engineering, and preprocessing to build predictive models with over 95% accuracy.</li>
+          <li>Developed time-series forecasting models to predict daily lab test volumes across 850+ clients and 68 national business units.</li>
+          <li>Improved data aggregation pipelines by 30% to support six-month volume predictions and proactive resource planning.</li>
+        </ul>
+      </div>
+
+      <div class="experience-entry" style="display:none;">
+        <div class="experience-header">
+          <div class="experience-company">Audiomate</div>
+          <div class="experience-meta">
+            <div class="experience-year">2025</div>
+          </div>
+        </div>
+        <div class="experience-role">Full-Stack AI Engineer</div>
+        <p class="experience-desc">Built a generative audio advertising platform that creates, voices, and mixes ad content end to end.</p>
+        <ul class="experience-bullets">
+          <li>Used Gemini LLMs for script generation and ElevenLabs for voice synthesis.</li>
+          <li>Implemented a custom voice-ranking model to score text-to-speech candidates based on tone and user preferences.</li>
+          <li>Built an audio-processing pipeline with Librosa, NumPy, and SciPy to mix synthesized speech with background music.</li>
+          <li>Connected Python REST endpoints to a TypeScript frontend for full-stack ML inference and product delivery.</li>
+        </ul>
+      </div>
+
+      <div class="experience-entry" style="display:none;">
+        <div class="experience-header">
+          <div class="experience-company">Voyager Consulting</div>
+          <div class="experience-meta">
+            <div class="experience-year">2024 - Present</div>
+          </div>
+        </div>
+        <div class="experience-role">Project Leader + Quant Analyst</div>
+        <p class="experience-desc">Work on student-run consulting projects involving data analysis, client strategy, and technical problem-solving.</p>
+        <ul class="experience-bullets">
+          <li>Lead project work across business, data, and engineering-style analysis.</li>
+          <li>Translate messy datasets and client questions into structured recommendations, models, and deliverables.</li>
+          <li>Currently support data-focused consulting work for Murphy Oil.</li>
+        </ul>
+      </div>
+
+      <div class="experience-entry">
+        <div class="experience-header">
+          <div class="experience-company">Susquehanna International Group</div>
+          <div class="experience-meta">
+            <div class="experience-year">Nov 2024</div>
+          </div>
+        </div>
+        <div class="experience-role">Women's Discovery Program Attendee</div>
+        <p class="experience-desc">Selected to attend SIG's Women's Discovery Program focused on markets, trading, quantitative problem-solving, and firm culture.</p>
+        <ul class="experience-bullets">
+          <li>Explored how trading, strategy, probability, and technology intersect in market-making environments.</li>
+          <li>Learned about SIG's approach to decision-making, market structure, and technical problem-solving.</li>
+        </ul>
+      </div>
+    </div>
+
+  </body>
+</html>
