@@ -107,6 +107,123 @@ strong {
     font-weight: 600;
 }
 
+/* Work timeline */
+.timeline {
+    margin-top: 24px;
+}
+
+.timeline-entry {
+    position: relative;
+    border-left: 1px solid #ddd6c9;
+    padding-left: 22px;
+    padding-bottom: 26px;
+}
+
+.timeline-entry:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+}
+
+.timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #222222;
+}
+
+.timeline-date {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #999999;
+    margin-bottom: 3px;
+}
+
+.timeline-role {
+    font-family: 'Segoe UI Semibold', 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: #222222;
+    margin-bottom: 6px;
+}
+
+.timeline-role .company {
+    font-weight: 700;
+}
+
+.timeline-entry p {
+    margin-bottom: 0;
+}
+
+/* Other page: columns + labeled sections */
+.other-label {
+    font-family: 'Segoe UI Semibold', 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: #222222;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #ddd6c9;
+}
+
+.other-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 32px;
+}
+
+.other-column ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.other-column li {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #444444;
+    margin-bottom: 10px;
+}
+
+.other-section {
+    margin-top: 40px;
+}
+
+.quote-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.quote-list li {
+    font-family: 'Segoe UI', sans-serif;
+    font-style: italic;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #444444;
+    margin-bottom: 14px;
+    padding-left: 16px;
+    border-left: 2px solid #ddd6c9;
+}
+
+.quote-list li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+    .other-columns {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
 /* Load-in animation */
 @keyframes fadeInDown {
     from {
