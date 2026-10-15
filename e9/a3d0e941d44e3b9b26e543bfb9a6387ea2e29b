@@ -1,0 +1,23 @@
+AGENTS.md
+  s_bced2e91d81d1d::t_081a5e14b0fd91 1-55
+CLAUDE.md
+  s_bced2e91d81d1d::t_d08e69599ac819 1
+24.html
+  s_bced2e91d81d1d::t_ea0c7ea1436254 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e9a3d0e941d44e3b9b26e543bfb9a6387ea2e29b",
+  "prompts": {},
+  "sessions": {
+    "s_bced2e91d81d1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6e6968cb-9722-4071-8c3e-d63c35a4a07d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Emily Mo <emilymo@Emilys-MacBook-Air.local>"
+    }
+  }
+}
