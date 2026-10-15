@@ -1,0 +1,24 @@
+style.css
+  s_bced2e91d81d1d::t_0d760e976f3c7a 1-2,12,29,60,70,107,141,150,167,190,208
+other.html
+  s_bced2e91d81d1d::t_3179ceb865bdb6 45
+  s_bced2e91d81d1d::t_de35d639403e62 53-57
+index.html
+  s_bced2e91d81d1d::t_6bf8427bd88664 22-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "73ae357e6546b1cee17dbc2fdcffcba6dfe7fb18",
+  "prompts": {},
+  "sessions": {
+    "s_bced2e91d81d1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6e6968cb-9722-4071-8c3e-d63c35a4a07d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Emily Mo <emilymo@Emilys-MacBook-Air.local>"
+    }
+  }
+}
