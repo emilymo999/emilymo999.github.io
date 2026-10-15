@@ -262,10 +262,6 @@ html.page-24 body {
     margin-right: 4px;
 }
 
-.game-bar .game-text-btn {
-    margin-left: auto;
-}
-
 .game-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -366,8 +362,7 @@ html.page-24 body {
 
 .game-card:focus-visible,
 .game-op:focus-visible,
-.game-text-btn:focus-visible,
-.game-save input:focus-visible {
+.game-text-btn:focus-visible {
     outline: 2px solid #222222;
     outline-offset: 2px;
 }
@@ -377,67 +372,6 @@ p.game-message {
     margin: 0;
     text-align: center;
     color: #666666;
-}
-
-.game-save {
-    display: grid;
-    gap: 8px;
-    width: 100%;
-    max-width: 360px;
-    font-size: 12px;
-    color: #444444;
-}
-
-.game-save-row {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.game-save input {
-    flex: 1;
-    min-width: 0;
-    padding: 6px 0;
-    border: none;
-    border-bottom: 1px solid #ddd6c9;
-    background: transparent;
-    font-size: 12px;
-    color: #222222;
-}
-
-.leaderboard {
-    margin: 0;
-    padding-left: 20px;
-}
-
-.leaderboard li {
-    font-size: 12px;
-    margin-bottom: 8px;
-    font-variant-numeric: tabular-nums;
-}
-
-.leaderboard li::marker {
-    color: #999999;
-}
-
-.leaderboard li > span {
-    display: inline-flex;
-}
-
-.leaderboard-name {
-    min-width: 0;
-    overflow-wrap: anywhere;
-}
-
-.leaderboard-score {
-    float: right;
-    color: #222222;
-    font-weight: 600;
-}
-
-p.leaderboard-empty {
-    color: #999999;
-    margin: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

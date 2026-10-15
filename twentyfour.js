@@ -2,9 +2,6 @@
 (function () {
   const TARGET = 24;
   const ROUND_SECONDS = 60;
-  const BOARD_KEY = "twentyfour-leaderboard-v2";
-  const NAME_KEY = "twentyfour-name";
-  const BOARD_SIZE = 10;
   const OP_SYMBOLS = { "+": "+", "-": "−", "*": "×", "/": "÷" };
 
   // Exact fraction math so 8 / 3 × 9 lands on 24 instead of 23.999...
@@ -53,19 +50,6 @@
     return nums;
   }
 
-  // Storage can be unavailable (private mode, blocked cookies); the game still works without it.
-  function load(key, fallback) {
-    try {
-      const raw = localStorage.getItem(key);
-      return raw === null ? fallback : JSON.parse(raw);
-    } catch (e) {
-      return fallback;
-    }
-  }
-  function save(key, value) {
-    try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
-  }
-
   const els = {
     cards: document.getElementById("game-cards"),
     ops: document.querySelectorAll(".game-op"),
@@ -74,13 +58,7 @@
     start: document.getElementById("game-start"),
     undo: document.getElementById("game-undo"),
     reset: document.getElementById("game-reset"),
-    skip: document.getElementById("game-skip"),
     message: document.getElementById("game-message"),
-    saveForm: document.getElementById("game-save"),
-    saveLabel: document.getElementById("game-save-label"),
-    name: document.getElementById("game-name"),
-    board: document.getElementById("leaderboard"),
-    boardEmpty: document.getElementById("leaderboard-empty"),
   };
 
   let hand = [];      // the four starting numbers
@@ -90,7 +68,6 @@
   let op = null;
   let locked = false; // true while showing a result or after a round ends
   let round = null;   // { endsAt, score, timer } while a timed round runs
-  let lastScore = 0;
   let pending = null; // timeout that moves on after a finished hand
 
   function newHand() {
@@ -137,7 +114,6 @@
     });
     els.undo.disabled = locked || history.length === 0;
     els.reset.disabled = locked || history.length === 0;
-    els.skip.disabled = locked;
   }
 
   function pickCard(i) {
@@ -204,7 +180,6 @@
 
   // Timed round
   function startRound() {
-    els.saveForm.hidden = true;
     round = { endsAt: Date.now() + ROUND_SECONDS * 1000, score: 0, timer: null };
     els.score.textContent = "0";
     els.start.disabled = true;
@@ -223,58 +198,16 @@
   function endRound() {
     clearInterval(round.timer);
     clearTimeout(pending);
-    round.timer = null;
-    lastScore = round.score;
-    locked = true;
-    selected = null;
-    op = null;
-    render();
-    els.start.disabled = false;
-    els.start.textContent = "Play again";
-    say("Time's up! You solved " + lastScore + ".");
-    els.saveLabel.textContent = "You solved " + lastScore + ". Add your name to the leaderboard.";
-    els.saveForm.hidden = false;
-    els.name.value = load(NAME_KEY, "");
-    els.name.focus();
+    const score = round.score;
     round = null;
-  }
-
-  // Leaderboard
-  function renderBoard() {
-    const board = load(BOARD_KEY, []);
-    els.board.replaceChildren(...board.map((entry) => {
-      const li = document.createElement("li");
-      const name = document.createElement("span");
-      name.className = "leaderboard-name";
-      name.textContent = entry.name;
-      const score = document.createElement("span");
-      score.className = "leaderboard-score";
-      score.textContent = entry.score;
-      li.append(name, score);
-      return li;
-    }));
-    els.boardEmpty.hidden = board.length > 0;
-  }
-
-  els.saveForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const name = els.name.value.trim();
-    if (!name) return;
-    save(NAME_KEY, name);
-    const board = load(BOARD_KEY, []);
-    board.push({ name, score: lastScore, at: Date.now() });
-    board.sort((a, b) => b.score - a.score || a.at - b.at);
-    save(BOARD_KEY, board.slice(0, BOARD_SIZE));
-    els.saveForm.hidden = true;
-    renderBoard();
+    els.start.disabled = false;
     newHand();
-    say("Saved. Press Play again for another round.");
-  });
+    say("Time's up! You solved " + score + ". Press Start to play again.");
+  }
 
   els.ops.forEach((b) => b.addEventListener("click", () => pickOp(b.dataset.op)));
   els.undo.addEventListener("click", undo);
   els.reset.addEventListener("click", () => { if (!locked) resetHand(); });
-  els.skip.addEventListener("click", () => { if (!locked) newHand(); });
   els.start.addEventListener("click", startRound);
 
   // Keyboard: 1-4 pick cards, + - * x / pick operations, Backspace undoes.
@@ -309,6 +242,5 @@
   }
 
   newHand();
-  renderBoard();
   rain();
 })();
