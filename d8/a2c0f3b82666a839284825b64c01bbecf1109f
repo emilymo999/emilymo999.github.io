@@ -1,0 +1,38 @@
+index.html
+  s_bced2e91d81d1d::t_aa63a92ffc68c1 13
+24.html
+  s_bced2e91d81d1d::t_8fa8b446756fc2 1
+  s_bced2e91d81d1d::t_c7604039a2ac19 2-20,23-67
+  s_bced2e91d81d1d::t_88de118d00db53 21-22
+other.html
+  s_bced2e91d81d1d::t_aa63a92ffc68c1 13
+twentyfour.js
+  s_bced2e91d81d1d::t_ea7fa318894952 5
+  s_bced2e91d81d1d::t_319bb8f00cbbcf 51
+  s_bced2e91d81d1d::t_dc278296b2d42e 1-4,6-50,52-93,95-101,103-189,191-192,194-224,226-269,272-290,311-312,314
+  s_bced2e91d81d1d::t_e5d019d42490c0 94,102,190,193,225,270-271
+  s_bced2e91d81d1d::t_1b3b963feea576 291-310,313
+work.html
+  s_bced2e91d81d1d::t_aa63a92ffc68c1 13
+style.css
+  s_bced2e91d81d1d::t_95a485e4774f59 228,234-270,273,275-278,280-453
+  s_bced2e91d81d1d::t_1b3b963feea576 454-483
+  s_bced2e91d81d1d::t_8fa8b446756fc2 229-233,279
+  s_bced2e91d81d1d::t_ea7fa318894952 271-272,274
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d8a2c0f3b82666a839284825b64c01bbecf1109f",
+  "prompts": {},
+  "sessions": {
+    "s_bced2e91d81d1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6e6968cb-9722-4071-8c3e-d63c35a4a07d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Emily Mo <emilymo@Emilys-MacBook-Air.local>"
+    }
+  }
+}
