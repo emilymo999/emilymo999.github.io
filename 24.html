@@ -1,0 +1,67 @@
+<html class="page-24">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>24</title>
+    <link rel="icon" type="image/png" href="images/browserimage.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/work">Work</a>
+      <a href="/other">Other</a>
+      <a href="/24">24</a>
+    </nav>
+
+    <div class="page-layout">
+      <div class="text-col">
+        <h1>24</h1>
+        <p>You must be tired... take a break by playing my favorite game, 24!!!</p>
+        <p>Play by using arithmetic to make 24, you can only use every card once and you must use all cards. The leaderboard shows who can solve the most in one minute!</p>
+
+        <div class="game">
+          <div class="game-bar">
+            <span class="game-stat"><span class="game-stat-label">Time</span> <span id="game-time">1:00</span></span>
+            <span class="game-stat"><span class="game-stat-label">Solved</span> <span id="game-score">0</span></span>
+            <button type="button" id="game-start" class="game-text-btn">Start 1-minute round</button>
+          </div>
+
+          <div class="game-cards" id="game-cards"></div>
+
+          <div class="game-ops" role="group" aria-label="Operations">
+            <button type="button" class="game-op" data-op="+" aria-label="add">+</button>
+            <button type="button" class="game-op" data-op="-" aria-label="subtract">−</button>
+            <button type="button" class="game-op" data-op="*" aria-label="multiply">×</button>
+            <button type="button" class="game-op" data-op="/" aria-label="divide">÷</button>
+          </div>
+
+          <div class="game-actions">
+            <button type="button" id="game-undo" class="game-text-btn">Undo</button>
+            <button type="button" id="game-reset" class="game-text-btn">Reset</button>
+            <button type="button" id="game-skip" class="game-text-btn">New cards</button>
+          </div>
+
+          <p class="game-message" id="game-message" aria-live="polite">Pick a number, an operation, then another number. Use all four to make 24.</p>
+
+          <form class="game-save" id="game-save" hidden>
+            <label for="game-name" id="game-save-label">Add your name to the leaderboard.</label>
+            <div class="game-save-row">
+              <input type="text" id="game-name" maxlength="20" autocomplete="nickname" placeholder="Your name" required />
+              <button type="submit" class="game-text-btn">Save</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="other-section">
+          <div class="other-label">Leaderboard</div>
+          <ol class="leaderboard" id="leaderboard"></ol>
+          <p class="leaderboard-empty" id="leaderboard-empty">No scores yet. Play a round to set the first one.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="twentyfour.js"></script>
+  </body>
+</html>

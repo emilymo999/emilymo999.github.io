@@ -225,6 +225,262 @@ strong {
     }
 }
 
+/* 24 game */
+html.page-24,
+html.page-24 body {
+    background: #fde8d4;
+}
+
+.game {
+    margin-top: 32px;
+    display: grid;
+    gap: 20px;
+    justify-items: center;
+}
+
+.game button,
+.game input {
+    font-family: inherit;
+}
+
+.game-bar {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    width: 100%;
+    max-width: 360px;
+    font-size: 12px;
+    color: #222222;
+    font-variant-numeric: tabular-nums;
+}
+
+.game-stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #999999;
+    margin-right: 4px;
+}
+
+.game-bar .game-text-btn {
+    margin-left: auto;
+}
+
+.game-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 220px;
+}
+
+.game-card {
+    aspect-ratio: 3 / 4;
+    border: 1px solid #f5b98a;
+    border-radius: 6px;
+    background: #fffdf9;
+    color: #222222;
+    font-family: Garamond, 'Libre Baskerville', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.game-card.is-fraction {
+    font-size: 20px;
+}
+
+.game-card:hover:not(:disabled) {
+    border-color: #222222;
+}
+
+.game-card.is-selected {
+    background: #222222;
+    border-color: #222222;
+    color: #f7f4ef;
+    transform: translateY(-3px);
+}
+
+.game-card.is-empty {
+    background: transparent;
+    border-style: dashed;
+    cursor: default;
+}
+
+.game-card:disabled:not(.is-empty) {
+    cursor: default;
+}
+
+.game-ops {
+    display: flex;
+    gap: 10px;
+}
+
+.game-op {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ddd6c9;
+    border-radius: 50%;
+    background: transparent;
+    color: #222222;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.game-op:hover:not(:disabled) {
+    border-color: #222222;
+}
+
+.game-op.is-selected {
+    background: #222222;
+    border-color: #222222;
+    color: #f7f4ef;
+}
+
+.game-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.game-text-btn {
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 12px;
+    color: #666666;
+    cursor: pointer;
+}
+
+.game-text-btn:hover:not(:disabled) {
+    color: #222222;
+    text-decoration: underline;
+}
+
+.game-text-btn:disabled,
+.game-op:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.game-card:focus-visible,
+.game-op:focus-visible,
+.game-text-btn:focus-visible,
+.game-save input:focus-visible {
+    outline: 2px solid #222222;
+    outline-offset: 2px;
+}
+
+p.game-message {
+    min-height: 1.6em;
+    margin: 0;
+    text-align: center;
+    color: #666666;
+}
+
+.game-save {
+    display: grid;
+    gap: 8px;
+    width: 100%;
+    max-width: 360px;
+    font-size: 12px;
+    color: #444444;
+}
+
+.game-save-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.game-save input {
+    flex: 1;
+    min-width: 0;
+    padding: 6px 0;
+    border: none;
+    border-bottom: 1px solid #ddd6c9;
+    background: transparent;
+    font-size: 12px;
+    color: #222222;
+}
+
+.leaderboard {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.leaderboard li {
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-variant-numeric: tabular-nums;
+}
+
+.leaderboard li::marker {
+    color: #999999;
+}
+
+.leaderboard li > span {
+    display: inline-flex;
+}
+
+.leaderboard-name {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.leaderboard-score {
+    float: right;
+    color: #222222;
+    font-weight: 600;
+}
+
+p.leaderboard-empty {
+    color: #999999;
+    margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .game-card,
+    .game-op {
+        transition: none;
+    }
+
+    .game-card.is-selected {
+        transform: none;
+    }
+}
+
+.rain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.rain span {
+    position: absolute;
+    top: -60px;
+    animation-name: rainFall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rainFall {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(calc(100vh + 80px)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
 /* Load-in animation */
 @keyframes fadeInDown {
     from {
