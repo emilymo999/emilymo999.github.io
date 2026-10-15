@@ -1,0 +1,19 @@
+work.html
+  s_bced2e91d81d1d::t_371d12744725b8 25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0e26d44f02e1ba948ab7d43cda5b85d57a690713",
+  "prompts": {},
+  "sessions": {
+    "s_bced2e91d81d1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6e6968cb-9722-4071-8c3e-d63c35a4a07d",
+        "model": "unknown"
+      },
+      "human_author": "Emily Mo <emilymo@Emilys-MacBook-Air.local>"
+    }
+  }
+}
