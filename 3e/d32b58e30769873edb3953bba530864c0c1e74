@@ -1,0 +1,23 @@
+work.html
+  s_0ec6755d3543c5::t_c95537661212eb 5,50
+other.html
+  s_0ec6755d3543c5::t_c95537661212eb 5
+index.html
+  s_0ec6755d3543c5::t_c95537661212eb 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3ed32b58e30769873edb3953bba530864c0c1e74",
+  "prompts": {},
+  "sessions": {
+    "s_0ec6755d3543c5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "44a06177-8a3e-483c-aea0-852682762bff",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Emily Mo <emilymo@Emilys-MacBook-Air.local>"
+    }
+  }
+}
